@@ -7,7 +7,7 @@ export const SearchInput = () => {
         Search for recent tweets of your favorite user.
       </p>
       <p>
-        You can seach by @username or keword.
+        You can search by @username or keyword.
       </p>
       <form>
         <input type="search" />
