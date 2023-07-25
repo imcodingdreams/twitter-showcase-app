@@ -1,4 +1,5 @@
 import React from 'react'
+import { TweetCard } from './TweetCard'
 
 export const RandomTweetPage = () => {
   return (
@@ -12,7 +13,7 @@ export const RandomTweetPage = () => {
         <img src='' alt='IMG' />
       </div>
       <button>Random Tweet</button>
-
+      <TweetCard />
     </div>
   )
 }

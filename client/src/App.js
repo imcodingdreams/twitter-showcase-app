@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar.js';
-// import { TweetCard } from './components/TweetCard';
+//import { TweetCard } from './components/TweetCard';
 import { SearchInput } from './components/SearchInput';
 //import { Header } from './components/Header.js';
 import { HomePage } from './components/HomePage';
@@ -9,7 +9,6 @@ import { RandomTweetPage } from './components/RandomTweetPage.js';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
-
   return (
     <>
       <nav>
