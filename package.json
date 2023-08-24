@@ -16,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/imcodingdreams/twitter-showcase-app/issues"
   },
-  "homepage": "https://github.com/imcodingdreams/twitter-showcase-app#readme"
+  "homepage": "https://github.com/imcodingdreams/twitter-showcase-app#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "css-loader": "^6.8.1",
+    "postcss-loader": "^7.3.3",
+    "style-loader": "^3.3.3"
+  }
 }

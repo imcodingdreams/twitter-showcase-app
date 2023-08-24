@@ -1,68 +1,32 @@
-import React from 'react'
-// import { faHeart } from "@fontawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
-import { useState, useEffect } from 'react';
-import axios from "axios";
+import React from 'react';
+import dayjs from "dayjs";
 
-export const TweetCard = () => {
-  const [id, setId] = useState("Unknown");
-  const [name, setName] = useState("Unknown");
-  const [username, setUsername] = useState("Unknown");
-  const [date, setDate] = useState("Unknown");
-  const [text, setText] = useState("Unknown");
-  const [retweets, setRetweets] = useState("Unknown");
-  const [favCount, setFavCount] = useState("Unknown");
-  // update `tweets to be the tweets from your sever
-  useEffect(() => {
-    // make an http request to our server for the tweets
-    axios.get('/api/tweets').then(response => {
-      console.log(response.data)
-      const data = response.data.data
-        setId(data[1].id);
-        setName(data[1].name);
-        setUsername(data[1].screen_name);
-        setDate(data[1].created_at);
-        setText(data[1].text);
-        setRetweets(data[1].retweet_count);
-        setFavCount(data[1].favorite_count);
-    });
-  }, []);
+export const TweetCard = ({ profileImg, user, username, formattedDate, text, retweets, favCount }) => {
   return (
-    <div className="tweetCardContainer">
-      <>
-        <p>{id}</p>
-        <h5>{name}</h5>
-        <h6>@{username}</h6>
-        <p>{retweets}</p>
-        <p>{favCount}</p>
-      </>
-      <>
-        <p>{date}</p>
-      </>
-      <p>{text}</p>
-      <img src='' alt='IMG' />
-      {/* <FontAwesomeIcon icon={faHeart} /> */}
-      {/* <img src='./heart-64.png'></img> */}
+    <div>
+      <div className="bg-gray-100 rounded-lg md:mx-auto mt-10 md:max-w-xl justify-center">
+        <div className="bg-gray-100 rounded-lg md:mx-auto mt-10 md:max-w-xl justify-center">
+          <div className="flex items-start px-4 py-6 mx-w-full">
+            <img className="w-12 h-12 rounded-full object-cover mr-4 shadow" src={profileImg} alt="IMG"></img>
+            <div>
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-gray-900 -mt-1">{user} </h2>
+                <small className="text-md text-gray-700">{formattedDate = dayjs(formattedDate).format("MM/DD/YY")}</small>
+              </div>
+              <p className="text-gray-700 flex items-start">@{username} </p>
+              <p className="mt-3 text-gray-700 text-sm">{text} </p>
+              <div className="mt-4 flex items-center">
+                <div className="flex mr-2 text-gray-700 text-sm mr-3">
+                  <span className="text-gray-700">Retweets: {retweets}</span>
+                </div>
+                <div className="flex mr-2 text-gray-700 text-sm mr-8">
+                  <span className="text-gray-700">Favorites: {favCount}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 };
-
-// export const TweetCard = () => {
-//   return (
-//     <container className="tweetCardContainer">
-//       <div>
-//         <>
-//           <h5>{name}</h5>
-//           <h6>{username}</h6>
-//         </>
-//         <>
-//           <h5>{date}</h5>
-//         </>
-//         <p>15 FREE Cybersecurity Courses offered by Homeland Security and CISA (Cyber & Infrastucture Security Agency)</p>
-//         <img src='' alt='IMG' />
-//         {/* <FontAwesomeIcon icon={faHeart} /> */}
-//         {/* <img src='./heart-64.png'></img> */}
-//       </div>
-//     </container>
-//   )
-// }
