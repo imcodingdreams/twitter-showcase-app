@@ -79,11 +79,9 @@ app.get(`/api/randomtweet`, async (req, res) => {
 });
 
 async function retrieveRandomData(userId) {
+  console.log(`UserId: ${userId} random`)
 
   const randomTweetsURL = `https://api.twitter.com/2/users/${userId}/tweets?expansions=author_id&tweet.fields=public_metrics,created_at&user.fields=name,username,profile_image_url`
-  
-  
-  // `https://api.twitter.com/1.1/search/tweets.json?q=${userId}&tweet_mode=extended&count=10&lang=en`;
 
   // https://api.twitter.com/2/users/813286/tweets?expansions=author_id&tweet.fields=public_metrics,created_at&user.fields=name,username,profile_image_url
 
@@ -100,8 +98,8 @@ async function retrieveRandomData(userId) {
       }
     });
 
-
     let jsonData = await randomResponse.json([]);
+    console.log(jsonData)
 
     const tweetsWithIncludesInfo = jsonData.data.map((tweet) => {
       const includesInfo = jsonData.includes.users.find(
