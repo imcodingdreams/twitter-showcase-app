@@ -71,4 +71,151 @@
 //   );
 // };
 
+// SearchPage
+//-------------------------------------------/>
 
+// import React, { useState } from 'react'
+// import TweetList from './SearchedTweetsList';
+
+// export const SearchPage = () => {
+
+//   const [userInput, setUserInput] = useState("");
+//   const [data, setData] = useState(false);
+
+//   // const handleSubmit = async (e) => {
+//   //   e.preventDefault();
+//   //   const response = await fetch(`/api?input=${input}`);
+//   //   const data = await response.json();
+//   //   setData(data);
+//   // }
+
+//   const fetchData = (value) => {
+//     fetch('/api/search')
+//       .then((response) => response.json())
+//       .then((json) => {
+//         console.log(json);
+//       })
+//   }
+
+//   const handleChange = (value) => {
+//     setUserInput(value);
+//     fetchData(value);
+//   }
+
+//   return (
+//     <div className="m-20">
+//       <p className="my-5">
+//         Search for recent tweets of your favorite user.
+//       </p>
+//       <p>You can search by @username or keyword.
+//       </p>
+
+//       <form className="m-20">
+//         <input
+//           value={userInput}
+//           onChange={e => setUserInput(e.target.value)}
+//           placeholder="Search here..." className="rounded p-2 text-black" type="text"
+//         />
+//         <button
+//           // onClick={() => setShowTweets(true)}
+//           className="bg-lime-500 text-black w-max px-2 rounded ml-1" type="submit">Search
+//         </button>
+//       </form>
+//       {
+//         data && <div>{JSON.stringify(data)}</div>
+//       }
+//       < TweetList />
+
+//     </div>
+//   );
+// };
+
+//------------------------------------------------
+
+//http:/localhost:3001/api/name
+// app.get('/api/search', async (req, res) => {
+
+//   const searchResponse = await main();
+//   res.send(searchResponse);
+
+// });
+
+// app.get('/api/randomtweet', async (req, res) => {
+
+//   // const [randomTweet, setRandomTweet] = useState([]);
+
+//   // const randomTweets = [
+//   //   // Your data for the first API call
+//   // ];
+//   // res.json(randomTweets);
+
+//   const randomResponse = await main()
+//   res.send(randomResponse);
+
+// });
+
+// async function retrieveRandomTweet() {
+
+//   const getBarackObamaTweets = 'https://api.twitter.com/2/users/813286/tweets&tweet_mode=extended&count=10';
+//   const getElonMuskTweets = 'https://api.twitter.com/2/users/44196397/tweets';
+//   const getJustinBieberTweets = 'https://api.twitter.com/2/users/27260086/tweets';
+//   const getKatyPerryTweets = 'https://api.twitter.com/2/users/21447363/tweets';
+//   const getRihannaTweets = 'https://api.twitter.com/2/users/79293791/tweets';
+
+
+
+
+//   const bearerToken = 'Bearer ' + process.env.BEARER_TOKEN;
+//   console.log(bearerToken);
+//   try {
+//     let randomResponse = await fetch(getBarackObamaTweets, getElonMuskTweets, getJustinBieberTweets, getKatyPerryTweets, getRihannaTweets, {
+//       method: 'get',
+//       headers: {
+//         'Authorization': (bearerToken),
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//       }
+//     });
+
+//     let randomResponseJsonData = await randomResponse.json();
+//     console.log(`jsonData: ${randomResponseJsonData
+// }`);
+//     return randomResponseJsonData;
+//   } catch (err) {
+//     return err;
+//   }
+// }
+
+
+// server
+
+  // const apiBaseUrl = 'https://api.twitter.com/1.1/search/tweets.json?q=nasa&tweet_mode=extended&count=10&lang=en';
+  // const obamaTweets = 'https://api.twitter.com/2/users/813286/tweets';
+  // const elonMuskTweets = 'https://api.twitter.com/2/users/44196397/tweets';
+  // const justinBieberTweets = 'https://api.twitter.com/2/users/27260086/tweets';
+  // const katyPerryTweets = 'https://api.twitter.com/2/users/21447363/tweets';
+  // const rihannaTweets = 'https://api.twitter.com/2/users/79293791/tweets';
+
+
+
+  // const influentPplTweets = 'https://api.twitter.com/2/tweets';
+
+  // const searchTweetsInput = 'https://api.twitter.com/1.1/search/tweets.json?q=${inputValue}&tweet_mode=extended&count=10&lang=en&result_type=popular';
+
+
+// const users = ['@BarackObama', '@katyperry', '@elonmusk', '@rihanna', '@justinbieber'];
+    // const randomTweets = await getRandomTweets(users);
+    // return randomTweets;
+
+// const obamaId = '813286';
+  // const elonMuskId = '44196397';
+  // const justinBieberId = '27260086';
+  // const katyPerryId = '21447363';
+  // const rihannaId = '79293791';
+
+
+  // const searchTweetsInput = 'https://api.twitter.com/2/users/44196397/tweets/tweet_mode=extended&count=10&lang=en&result_type=popular';
+
+  // const searchTweetsInput =`https://api.twitter.com/2/users/${id}/tweets?expansions=author_id&tweet.fields=public_metrics,created_at`
+
+  // ${searchInput.value}

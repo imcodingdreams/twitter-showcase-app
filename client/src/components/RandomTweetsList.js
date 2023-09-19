@@ -1,12 +1,12 @@
 import React from 'react'
-import { TweetCard } from './TweetCard';
+import { TweetCard } from './TweetCard'
 
 
-const SearchedTweetsList = ({searchedTweets}) => {
+const RandomTweetsList = ({randomTweets}) => {
 
   return (
     <div>
-      {searchedTweets?.map(tweet => (
+      {randomTweets?.map(tweet => (
         <TweetCard
           key={tweet.id}
           profileImg={tweet.author.profile_image_url}
@@ -22,4 +22,4 @@ const SearchedTweetsList = ({searchedTweets}) => {
   );
 };
 
-export default SearchedTweetsList;
+export default RandomTweetsList;
