@@ -73,12 +73,12 @@ app.get(`/api/randomtweet`, async (req, res) => {
 
   console.log(req.query)
   const userId = req.query.user_id;
-  const randomResponse = await retrieveRandomData(userId);
-  res.send(randomResponse);
+  const fetchResponse = await retrieveUserData(userId);
+  res.send(fetchResponse);
   //if userInput starts with an @ use username. If is not valid, throw an error.
 });
 
-async function retrieveRandomData(userId) {
+async function retrieveUserData(userId) {
   console.log(`UserId: ${userId} random`)
 
   const randomTweetsURL = `https://api.twitter.com/2/users/${userId}/tweets?expansions=author_id&tweet.fields=public_metrics,created_at&user.fields=name,username,profile_image_url`
@@ -89,7 +89,7 @@ async function retrieveRandomData(userId) {
   console.log(bearerToken);
 
   try {
-    let randomResponse = await fetch(randomTweetsURL, {
+    let fetchResponse = await fetch(randomTweetsURL, {
       method: 'get',
       headers: {
         'Authorization': (bearerToken),
@@ -98,7 +98,7 @@ async function retrieveRandomData(userId) {
       }
     });
 
-    let jsonData = await randomResponse.json([]);
+    let jsonData = await fetchResponse.json([]);
     console.log(jsonData)
 
     const tweetsWithIncludesInfo = jsonData.data.map((tweet) => {
