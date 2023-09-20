@@ -21,7 +21,7 @@ async function retrieveSearchData(userInput) {
   console.log(bearerToken);
 
   try {
-    let searchResponse = await fetch(searchTweetsURL, {
+    let fetchResponse = await fetch(searchTweetsURL, {
       method: 'get',
       headers: {
         'Authorization': (bearerToken),
@@ -31,7 +31,7 @@ async function retrieveSearchData(userInput) {
     });
 
 
-    let jsonData = await searchResponse.json([]);
+    let jsonData = await fetchResponse.json([]);
 
     const tweetsWithIncludesInfo = jsonData.data.map((tweet) => {
       const includesInfo = jsonData.includes.users.find(
@@ -50,12 +50,8 @@ async function retrieveSearchData(userInput) {
       };
     });
 
-    // console.log(jsonData)
-    // console.log(jsonData);
-    //loop through each tweet (jsonData.data) tweets
-    //search for user data in includes (jsonData.includes) attach to the tweet
-    return tweetsWithIncludesInfo; //this needs to be an array of tweets
-    //loop through for each author_id get the properties in includes/user
+    return tweetsWithIncludesInfo;
+    
   } catch (err) {
     return err;
   }

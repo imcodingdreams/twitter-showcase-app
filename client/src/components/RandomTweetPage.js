@@ -11,14 +11,12 @@ import Rihanna from '../img/Rihanna.jpeg'
 export const RandomTweetPage = () => {
 
   const [userId, setUserId] = useState("");
-  // const [randomTweet, setRandomTweet] = useState([]);
+  const [randomTweet, setRandomTweet] = useState([]);
   const [userTweets, setUserTweets] = useState([]);
   const [showRandomTweet, setShowRandomTweet] = useState(false);
 
   useEffect(() => {
-    // Fetch tweets from the backend server
     fetchUserTweets();
-    console.log(`userTweets: ${userTweets}`)
   }, []);
 
 
@@ -27,7 +25,6 @@ export const RandomTweetPage = () => {
     setUserId(clickedUserId)
     await fetchUserTweets(clickedUserId);
     console.log(`UserId: ${userId}`)
-    // getRandomTweet();
     toggleComponent();
   }
 
@@ -35,25 +32,17 @@ export const RandomTweetPage = () => {
     setShowRandomTweet(true);
   }
 
-
   const fetchUserTweets = async (userId) => {
     try {
       const response = await axios.get(`/api/randomtweet?user_id=${userId}`)
 
       setUserTweets(response.data)
+      setRandomTweet(randomTweet)
       
     } catch (error) {
       console.error('Error fetching tweets:', error);
     }
   };
-
-  // const getRandomTweet = () => {
-  //   if (userTweets && userTweets.length > 0) {
-  //     const randomIndex = Math.floor(Math.random() * userTweets.length);
-  //     const randomTweet = userTweets[randomIndex];
-  //     setRandomTweet(randomTweet);
-  //   }
-  // };
 
   return (
     <div className="m-20 mb-20">
