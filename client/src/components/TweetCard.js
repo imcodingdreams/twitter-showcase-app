@@ -5,7 +5,7 @@ export const TweetCard = ({ profileImg, user, username, formattedDate, text, ret
   return (
     <div>
       <div className="bg-gray-100 rounded-lg md:mx-auto mt-10 md:max-w-xl justify-center">
-        <div className="bg-gray-100 rounded-lg md:mx-auto mt-10 md:max-w-xl justify-center">
+        <div className=" bg-gray-100 rounded-lg md:mx-auto mt-10 md:max-w-xl justify-center">
           <div className="flex items-start px-4 py-6 mx-w-full">
             <img className="w-12 h-12 rounded-full object-cover mr-4 shadow" src={profileImg} alt="IMG"></img>
             <div>
@@ -17,7 +17,7 @@ export const TweetCard = ({ profileImg, user, username, formattedDate, text, ret
               <p className="mt-3 text-gray-700 text-sm">{text} </p>
               <div className="mt-4 flex items-center">
                 <div className="flex text-gray-700 text-sm mr-8 items-center">
-                  <svg className="w-6 h-6  stroke-lime-500" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 stroke-lime-500" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
                   </svg>
                   <span

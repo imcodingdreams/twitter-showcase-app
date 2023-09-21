@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import RandomTweetsList from './RandomTweetsList'
 import BarackObama from '../img/BarackObama.jpeg'
@@ -14,10 +14,6 @@ export const RandomTweetPage = () => {
   const [randomTweet, setRandomTweet] = useState([]);
   const [userTweets, setUserTweets] = useState([]);
   const [showRandomTweet, setShowRandomTweet] = useState(false);
-
-  useEffect(() => {
-    fetchUserTweets();
-  }, []);
 
 
   const handleClick = async (e) => {
@@ -46,6 +42,7 @@ export const RandomTweetPage = () => {
 
   return (
     <div className="m-20 mb-20">
+      <h1 className='text-4xl text-lime-500'>RANDOM TWEET ROULETTE</h1>
       <p className="m-5">This is the Most Influential People on Twitter!</p>
       <p>Click a picture to get a random tweet from one of them.</p>
       <div className="items-center justify-center space-between ">
