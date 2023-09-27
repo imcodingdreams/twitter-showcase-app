@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { TweetCard } from './TweetCard'
+import LoadingSpinner from './LoadingSpinner';
 
 
-const RandomTweetsList = ({userTweets}) => {
+const RandomTweetsList = ({ userTweets, setIsLoading, isLoading}) => {
 
   const [randomTweet, setRandomTweet] = useState(null);
 
@@ -10,7 +11,9 @@ const RandomTweetsList = ({userTweets}) => {
     if (userTweets && userTweets.length > 0) {
       const randomIndex = Math.floor(Math.random() * userTweets.length);
       const randomTweet = userTweets[randomIndex];
+      setIsLoading(true)
       setRandomTweet(randomTweet);
+      setIsLoading(false)
     }
   };
 
@@ -20,6 +23,11 @@ const RandomTweetsList = ({userTweets}) => {
 
   return (
     <div>
+      {isLoading &&
+        <LoadingSpinner
+          isLoading={isLoading}
+        />
+      }
       {randomTweet && (
         <TweetCard
           key={randomTweet.id}
